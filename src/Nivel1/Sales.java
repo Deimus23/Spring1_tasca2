@@ -4,22 +4,21 @@ import java.util.ArrayList;
 
 public class Sales {
     private static ArrayList<Products> totalProducts;
-    private  double totoalSales;
+    private static double totalSales = 0.0;
 
     public Sales() {
-    this.totalProducts = new ArrayList<>();
-    this.totoalSales=0.0;
+        this.totalProducts = new ArrayList<>();
     }
 
-    public static void totalPrice() throws EmptysSaleEx {
-        double sales= 0.0;
-        String name;
+    public void totalPrice() throws EmptysSaleEx {
+        double sales = 0.0;
 
-        for( Products products:totalProducts){
-            if (products.getName()==null){
-            throw new EmptysSaleEx();
-            }else{
-            sales+=products.getPrice();
+        if (totalProducts.isEmpty()) {
+            throw new EmptysSaleEx("To calculate the total sales, first you need to add products;");
+        } else {
+            for (Products products : totalProducts) {
+                sales += products.getPrice();
+                totalSales = sales;
             }
         }
 

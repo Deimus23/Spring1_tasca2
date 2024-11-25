@@ -2,8 +2,12 @@ package Nivel1;
 
 public class EmptysSaleEx extends Exception {
 
-    public EmptysSaleEx() {
+    public EmptysSaleEx(String message) {
         super("To calculate the total sales, first you need to add products");
     }
 
+    @Override
+    public String getMessage() {
+        return super.getMessage();
+    }
 }
