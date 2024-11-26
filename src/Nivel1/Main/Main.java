@@ -1,4 +1,7 @@
-package Nivel1;
+package Nivel1.Main;
+
+import Nivel1.Exceptions.EmptysSaleEx;
+import Nivel1.Modules.Sales;
 
 public class Main {
     public static void main(String[] args) {

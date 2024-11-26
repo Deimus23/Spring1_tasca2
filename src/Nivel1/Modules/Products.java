@@ -1,4 +1,4 @@
-package Nivel1;
+package Nivel1.Modules;
 
 public class Products {
     private String name;

@@ -1,4 +1,4 @@
-package Nivel1;
+package Nivel1.Exceptions;
 
 public class EmptysSaleEx extends Exception {
 
