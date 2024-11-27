@@ -1,6 +1,6 @@
 package Nivel2.Modules;
 
-import Nivel2.Exceptions.ExceptionChar;
+import Nivel2.Exceptions.ExceptionInput;
 
 import java.util.Scanner;
 
@@ -74,26 +74,85 @@ public class Input {
         } while (!exit);
         return chose;
     }
- public char inputChar(String message){
+
+    public char inputChar(String message) throws ExceptionInput {
         char character = 0;
         String chose;
         boolean exit = false;
-        do{
-            try{
+        do {
+            try {
                 System.out.println(message);
-                chose=sc.nextLine();
-                sc.nextLine();
-                if(chose.length()!=1) {
-                    throw new ExceptionChar();
-                }else{
-                    chose.charAt(character);
-                }
-            }catch (ExceptionChar){
 
+                chose = sc.nextLine();
+                sc.nextLine();
+                if (chose.length() != 1) {
+                    throw new ExceptionInput("Invalid input or input stream closed.");
+                } else {
+                    chose.charAt(character);
+                    exit = true;
+                }
+            } catch (ExceptionInput c) {
+                System.out.println("Error: Invalid input or input stream closed.");
+                sc.nextLine();
             }
-        }while(!exit);
-     return character;
- }
+        } while (!exit);
+        return character;
+
+    }
+
+    public String inputString(String message) throws ExceptionInput {
+        String character = "";
+        String chose;
+        boolean exit = false;
+        do {
+            try {
+                System.out.println(message);
+
+                chose = sc.nextLine();
+                sc.nextLine();
+                if (chose.length() != 1) {
+                    chose = character;
+                    exit = true;
+                } else {
+                    throw new ExceptionInput("Invalid input or input stream closed.");
+                }
+            } catch (ExceptionInput c) {
+                System.out.println("Error: Invalid input or input stream closed.");
+                sc.nextLine();
+            }
+        } while (!exit);
+        return character;
+
+    }
+
+    public boolean inputBolean(String message) throws ExceptionInput {
+        boolean character = false;
+        String chose, yes = "y", no = "n";
+        boolean exit = false;
+
+        do {
+            try {
+                System.out.println(message);
+                chose = sc.nextLine();
+                chose.toLowerCase();
+
+                sc.nextLine();
+                if (chose.charAt(1) == yes.charAt(1)) {
+                    character = true;
+                    exit = true;
+                } else if (chose.charAt(1) == no.charAt(1)) {
+                    character = false;
+                    exit = true;
+                } else {
+                    throw new ExceptionInput("Invalid input or input stream closed.");
+                }
+            } catch (ExceptionInput c) {
+                System.out.println("Error: Invalid input or input stream closed.");
+                sc.nextLine();
+            }
+        } while (!exit);
+        return character;
+    }
 
 
 }
