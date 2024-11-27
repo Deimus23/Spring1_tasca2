@@ -84,7 +84,7 @@ public class Input {
                 System.out.println(message);
 
                 chose = sc.nextLine();
-                sc.nextLine();
+
                 if (chose.length() != 1) {
                     throw new ExceptionInput("Invalid input or input stream closed.");
                 } else {
@@ -93,7 +93,7 @@ public class Input {
                 }
             } catch (ExceptionInput c) {
                 System.out.println("Error: Invalid input or input stream closed.");
-                sc.nextLine();
+
             }
         } while (!exit);
         return character;
@@ -107,9 +107,8 @@ public class Input {
         do {
             try {
                 System.out.println(message);
-
                 chose = sc.nextLine();
-                sc.nextLine();
+
                 if (chose.length() != 1) {
                     chose = character;
                     exit = true;
@@ -118,7 +117,7 @@ public class Input {
                 }
             } catch (ExceptionInput c) {
                 System.out.println("Error: Invalid input or input stream closed.");
-                sc.nextLine();
+
             }
         } while (!exit);
         return character;
@@ -136,11 +135,10 @@ public class Input {
                 chose = sc.nextLine();
                 chose.toLowerCase();
 
-                sc.nextLine();
-                if (chose.charAt(1) == yes.charAt(1)) {
+                if (chose.charAt(0) == yes.charAt(0)) {
                     character = true;
                     exit = true;
-                } else if (chose.charAt(1) == no.charAt(1)) {
+                } else if (chose.charAt(0) == no.charAt(0)) {
                     character = false;
                     exit = true;
                 } else {
@@ -148,7 +146,7 @@ public class Input {
                 }
             } catch (ExceptionInput c) {
                 System.out.println("Error: Invalid input or input stream closed.");
-                sc.nextLine();
+
             }
         } while (!exit);
         return character;
