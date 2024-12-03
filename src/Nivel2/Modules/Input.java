@@ -15,6 +15,7 @@ public class Input {
                 System.out.println(message);
                 chose = sc.nextByte();
                 sc.nextLine();
+
                 exit = true;
             } catch (Exception InputMismatchException) {
                 System.out.println("Error: Invalid input or input stream closed.");
@@ -91,7 +92,7 @@ public class Input {
                     chose.charAt(character);
                     exit = true;
                 }
-            } catch (ExceptionInput c) {
+            } catch (ExceptionInput e) {
                 System.out.println("Error: Invalid input or input stream closed.");
 
             }
@@ -115,7 +116,7 @@ public class Input {
                 } else {
                     throw new ExceptionInput("Invalid input or input stream closed.");
                 }
-            } catch (ExceptionInput c) {
+            } catch (ExceptionInput e) {
                 System.out.println("Error: Invalid input or input stream closed.");
 
             }
@@ -133,7 +134,7 @@ public class Input {
             try {
                 System.out.println(message);
                 chose = sc.nextLine();
-                chose.toLowerCase();
+                chose=chose.toLowerCase();
 
                 if (chose.charAt(0) == yes.charAt(0)) {
                     character = true;
@@ -144,7 +145,7 @@ public class Input {
                 } else {
                     throw new ExceptionInput("Invalid input or input stream closed.");
                 }
-            } catch (ExceptionInput c) {
+            } catch (ExceptionInput e) {
                 System.out.println("Error: Invalid input or input stream closed.");
 
             }
